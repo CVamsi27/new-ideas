@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Indian Startup Stack Index</title>
+    <meta
+      name="description"
+      content="Compare Indian startup tools, copy proven stacks, and roast your startup setup with India-first scoring."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Indian Startup Stack Index home">
+        <span class="brand-mark">IS</span>
+        <span>
+          <strong>Indian Startup Stack Index</strong>
+          <small>Discover. Compare. Build smarter.</small>
+        </span>
+      </a>
+      <nav class="top-nav" aria-label="Primary">
+        <a href="#categories">Categories</a>
+        <a href="#comparisons">Comparisons</a>
+        <a href="#presets">Stack Presets</a>
+        <a href="#roast">Stack Roast</a>
+        <a href="#benchmark">Benchmark</a>
+        <a href="#sponsors">For Tools</a>
+      </nav>
+      <div class="header-actions">
+        <button class="button ghost" type="button">Sign in</button>
+        <button class="button dark submit-tool" type="button"><span>Submit a Tool</span></button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <h1>The definitive index and audit for Indian startup stacks.</h1>
+          <p>
+            Compare tools, understand trade-offs, cut wasted SaaS spend, and copy stacks that
+            already work for Indian founders.
+          </p>
+          <div class="hero-stats" aria-label="Index statistics">
+            <span><strong>250+</strong><small>Tools indexed</small></span>
+            <span><strong>30+</strong><small>Categories</small></span>
+            <span><strong>12,500+</strong><small>Founders use this</small></span>
+            <span><strong>Weekly</strong><small>Pricing updates</small></span>
+          </div>
+          <form class="search-panel" id="searchForm">
+            <label class="sr-only" for="searchInput">Search tools or categories</label>
+            <input
+              id="searchInput"
+              type="search"
+              placeholder="Search tools or categories, e.g. Razorpay, WhatsApp, GST"
+            />
+            <button type="submit" aria-label="Search">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m21 21-4.3-4.3m1.3-5.2a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0Z" />
+              </svg>
+            </button>
+          </form>
+          <div class="popular-links" aria-label="Popular comparisons">
+            <span>Popular:</span>
+            <a href="#comparisons">Razorpay vs Cashfree vs Stripe</a>
+            <a href="#comparisons">WATI vs AiSensy vs Interakt</a>
+            <a href="#comparisons">Vercel vs Cloudflare vs Render</a>
+          </div>
+        </div>
+
+        <aside class="roast-card" aria-labelledby="hero-roast-title">
+          <h2 id="hero-roast-title">Stack Roast: India Edition</h2>
+          <p>Get a data-backed audit of your stack in 24-48 hrs.</p>
+          <ul>
+            <li>Score across 5 critical dimensions</li>
+            <li>Find gaps, risks, and cheaper alternatives</li>
+            <li>Actionable recommendations</li>
+            <li>Benchmarked against 500+ Indian startups</li>
+          </ul>
+          <div class="roast-price">
+            <span>Just Rs 999</span>
+            <a class="button dark" href="#roast">Roast My Stack</a>
+          </div>
+          <small>Limited time offer. Save Rs 1,000.</small>
+        </aside>
+      </section>
+
+      <section class="band" id="categories">
+        <div class="section-head">
+          <div>
+            <h2>Browse by Category</h2>
+            <p>India-specific notes for pricing, support, setup, compliance, and hidden costs.</p>
+          </div>
+          <button class="text-button" id="resetFilters" type="button">View all categories</button>
+        </div>
+        <div class="category-grid" id="categoryGrid" aria-label="Tool categories"></div>
+      </section>
+
+      <section class="tool-directory band" id="tools">
+        <div class="section-head">
+          <div>
+            <h2>Indexed Tools</h2>
+            <p>50 starter entries with pricing posture, founder fit, and India-readiness notes.</p>
+          </div>
+          <span class="directory-count" id="directoryCount">50 tools</span>
+        </div>
+        <div class="tool-table-wrap">
+          <table class="tool-table">
+            <thead>
+              <tr>
+                <th scope="col">Tool</th>
+                <th scope="col">Category</th>
+                <th scope="col">Best For</th>
+                <th scope="col">Pricing</th>
+                <th scope="col">India Note</th>
+              </tr>
+            </thead>
+            <tbody id="toolRows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="band" id="comparisons">
+        <div class="section-head">
+          <div>
+            <h2>Featured Comparisons</h2>
+            <p>Opinionated trade-offs for founders building from India.</p>
+          </div>
+          <a class="text-button" href="#newsletter">See all comparisons</a>
+        </div>
+        <div class="comparison-grid" id="comparisonGrid"></div>
+      </section>
+
+      <section class="scoring band" id="methodology">
+        <div class="section-head">
+          <div>
+            <h2>How We Score</h2>
+            <p>Transparent, data-backed, India-first.</p>
+          </div>
+        </div>
+        <div class="score-layout">
+          <div class="score-factors">
+            <article>
+              <span class="factor-icon blue">01</span>
+              <div>
+                <h3>Startup Readiness <small>25%</small></h3>
+                <p>Ease of setup, docs, support quality, and founder fit.</p>
+              </div>
+            </article>
+            <article>
+              <span class="factor-icon green">02</span>
+              <div>
+                <h3>Tech Debt <small>20%</small></h3>
+                <p>Complexity, lock-in, custom code, and migration cost.</p>
+              </div>
+            </article>
+            <article>
+              <span class="factor-icon yellow">03</span>
+              <div>
+                <h3>Conversion <small>20%</small></h3>
+                <p>Impact on funnel clarity, reliability, and success metrics.</p>
+              </div>
+            </article>
+            <article>
+              <span class="factor-icon blue">04</span>
+              <div>
+                <h3>India Market Readiness <small>20%</small></h3>
+                <p>RBI, GST, local support, uptime in India, and payment fit.</p>
+              </div>
+            </article>
+            <article>
+              <span class="factor-icon red">05</span>
+              <div>
+                <h3>Wasted SaaS Spend <small>15%</small></h3>
+                <p>Total cost versus value, hidden fees, and feature overlap.</p>
+              </div>
+            </article>
+          </div>
+          <div class="scale-card">
+            <h3>Scoring Scale <small>1-10</small></h3>
+            <div class="scale-row excellent"><strong>9-10</strong><span>Excellent</span><small>Best-in-class for most Indian startups.</small></div>
+            <div class="scale-row good"><strong>7-8</strong><span>Good</span><small>Solid choice with minor trade-offs.</small></div>
+            <div class="scale-row average"><strong>5-6</strong><span>Average</span><small>Usable but has clear limitations.</small></div>
+            <div class="scale-row poor"><strong>3-4</strong><span>Poor</span><small>High trade-offs or missing basics.</small></div>
+            <div class="scale-row risky"><strong>1-2</strong><span>Risky</span><small>Avoid unless you have no alternative.</small></div>
+          </div>
+          <aside class="sources-card">
+            <h3>Our Data Sources</h3>
+            <ul>
+              <li>Founder reviews from Indian operators</li>
+              <li>Pricing and docs analysis</li>
+              <li>Uptime and status history</li>
+              <li>Compliance and security checks</li>
+              <li>Hands-on testing</li>
+              <li>500+ startup stack audits</li>
+            </ul>
+            <div class="update-box">
+              <strong>Last updated</strong>
+              <span>May 3, 2026</span>
+              <small>Updates weekly</small>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="band" id="presets">
+        <div class="section-head">
+          <div>
+            <h2>Stack Presets</h2>
+            <p>Copy a proven stack. Save weeks of research.</p>
+          </div>
+          <a class="text-button" href="#newsletter">View all presets</a>
+        </div>
+        <div class="preset-grid" id="presetGrid"></div>
+      </section>
+
+      <section class="roast-section band" id="roast">
+        <div class="section-head">
+          <div>
+            <h2>Stack Roast: Get Your Audit</h2>
+            <p>Share your stack. Get a data-backed roast with actionable fixes.</p>
+          </div>
+        </div>
+        <div class="roast-workspace">
+          <form class="audit-form" id="auditForm">
+            <div class="steps" aria-label="Audit steps">
+              <button class="step active" type="button" data-step="about">1 About You</button>
+              <button class="step" type="button" data-step="stack">2 Your Stack</button>
+              <button class="step" type="button" data-step="business">3 Business Details</button>
+              <button class="step" type="button" data-step="review">4 Review and Pay</button>
+            </div>
+            <div class="form-panel">
+              <h3 id="formTitle">1. About You</h3>
+              <div class="form-grid">
+                <label>
+                  <span>Your Name</span>
+                  <input name="name" type="text" placeholder="e.g. Ankita Sharma" />
+                </label>
+                <label>
+                  <span>Work Email</span>
+                  <input name="email" type="email" placeholder="you@startup.com" />
+                </label>
+                <label>
+                  <span>Company / Project</span>
+                  <input name="company" type="text" placeholder="e.g. ShipFast" />
+                </label>
+                <label>
+                  <span>Business Type</span>
+                  <select name="type">
+                    <option>SaaS</option>
+                    <option>Agency</option>
+                    <option>D2C</option>
+                    <option>Freelancer</option>
+                    <option>Local Business</option>
+                  </select>
+                </label>
+                <label class="full">
+                  <span>Website URL</span>
+                  <input name="url" type="url" placeholder="https://example.com" />
+                </label>
+                <label class="full">
+                  <span>Repository URL</span>
+                  <input
+                    name="repoUrl"
+                    type="url"
+                    placeholder="https://github.com/acme/startup or https://gitlab.com/acme/app"
+                  />
+                </label>
+                <label class="full">
+                  <span>Package / Dependency Hints</span>
+                  <input
+                    name="packageHints"
+                    type="text"
+                    placeholder="next, prisma, razorpay, whatsapp, tailwind, posthog"
+                  />
+                </label>
+                <label class="full">
+                  <span>Monthly tool spend</span>
+                  <input name="spend" type="number" min="0" step="500" placeholder="9800" />
+                </label>
+              </div>
+              <button class="button dark full-width" type="submit">Generate Sample Roast</button>
+              <p class="secure-note">Secure checkout. 24-48 hr delivery. Indian payment options.</p>
+            </div>
+          </form>
+
+          <aside class="report-preview" id="reportPreview" aria-live="polite">
+            <div class="report-head">
+              <h3>Sample Roast Report</h3>
+              <a href="#newsletter">View full sample</a>
+            </div>
+            <div class="report-body">
+              <div class="gauge" style="--score: 72">
+                <strong id="overallScore">72</strong>
+                <span>Good</span>
+              </div>
+              <div class="score-bars">
+                <div><span>Startup Readiness</span><meter min="0" max="10" value="7.6"></meter><strong>7.6</strong></div>
+                <div><span>Tech Debt</span><meter min="0" max="10" value="6.4"></meter><strong>6.4</strong></div>
+                <div><span>Conversion</span><meter min="0" max="10" value="7.1"></meter><strong>7.1</strong></div>
+                <div><span>India Readiness</span><meter min="0" max="10" value="7.8"></meter><strong>7.8</strong></div>
+                <div><span>Wasted SaaS Spend</span><meter min="0" max="10" value="5.2"></meter><strong>5.2</strong></div>
+              </div>
+            </div>
+            <div class="findings">
+              <h4>Top Findings</h4>
+              <ul id="findingsList">
+                <li>You are overspending by Rs 18,450/month across 6 tools.</li>
+                <li>High tech debt risk in hosting and analytics.</li>
+                <li>Switching payments gateway could save Rs 6,000/month.</li>
+              </ul>
+            </div>
+            <div class="repo-analysis" id="repoAnalysis">
+              <div>
+                <h4>Repository Stack Prediction</h4>
+                <span id="repoProvider">No repository connected</span>
+              </div>
+              <div class="repo-chips" id="repoChips">
+                <span>Paste GitHub, GitLab, Bitbucket, Codeberg, or Azure DevOps URL</span>
+              </div>
+              <ul id="repoFindings">
+                <li>Repository signals will be separated from AI opinion in the final audit.</li>
+              </ul>
+            </div>
+            <div class="share-card" aria-label="Shareable roast card">
+              <div>
+                <span id="shareCompany">Your Startup</span>
+                <strong id="shareScore">72/100</strong>
+                <small>Startup Readiness: Good</small>
+              </div>
+              <p id="shareQuote">Modern stack, unclear pricing, and Rs 18,450/month hiding in tool overlap.</p>
+            </div>
+            <div class="report-cta">
+              <strong>Full Stack Roast Report: Just Rs 999</strong>
+              <div class="report-actions">
+                <button class="button ghost" id="copyShare" type="button">Copy Share Text</button>
+                <button class="button dark" type="button">Roast My Stack Now</button>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="benchmark band" id="benchmark">
+        <div class="section-head">
+          <div>
+            <h2>Founder Spend Benchmark</h2>
+            <p>See whether your monthly stack spend is lean, normal, bloated, or in danger zone.</p>
+          </div>
+          <span class="directory-count">2026 sample benchmark</span>
+        </div>
+        <div class="benchmark-layout">
+          <form class="benchmark-form" id="benchmarkForm">
+            <label>
+              <span>Business Type</span>
+              <select name="benchmarkType">
+                <option value="saas">Bootstrap SaaS</option>
+                <option value="agency">Agency</option>
+                <option value="d2c">D2C Brand</option>
+                <option value="freelancer">Freelancer</option>
+                <option value="coaching">Coaching Center</option>
+                <option value="local">Local Business</option>
+              </select>
+            </label>
+            <label>
+              <span>Monthly Tool Spend</span>
+              <input name="benchmarkSpend" type="number" min="0" step="500" value="9800" />
+            </label>
+            <label>
+              <span>Team Size</span>
+              <input name="benchmarkTeam" type="number" min="1" step="1" value="3" />
+            </label>
+            <label>
+              <span>Revenue Stage</span>
+              <select name="benchmarkStage">
+                <option value="pre-revenue">Pre-revenue</option>
+                <option value="early">Rs 0-1L/month</option>
+                <option value="growth">Rs 1L-10L/month</option>
+                <option value="scale">Rs 10L+/month</option>
+              </select>
+            </label>
+            <label>
+              <span>AI Tool Spend</span>
+              <input name="benchmarkAi" type="number" min="0" step="500" value="3000" />
+            </label>
+            <label>
+              <span>WhatsApp / Support Spend</span>
+              <input name="benchmarkWhatsApp" type="number" min="0" step="500" value="2500" />
+            </label>
+            <button class="button dark full-width" type="submit">Calculate Benchmark</button>
+          </form>
+
+          <aside class="benchmark-result" aria-live="polite">
+            <div class="benchmark-gauge" id="benchmarkGauge">
+              <strong id="benchmarkPercentile">64%</strong>
+              <span id="benchmarkBand">Normal</span>
+            </div>
+            <div>
+              <h3 id="benchmarkHeadline">Your stack spend is normal for bootstrap SaaS.</h3>
+              <p id="benchmarkSummary">
+                You are spending more than 64% of similar Indian founders, with roughly Rs 2,300/month
+                in avoidable overlap.
+              </p>
+              <div class="benchmark-share" id="benchmarkShare">
+                My startup stack is leaner than 36% of Indian bootstrap SaaS founders.
+              </div>
+            </div>
+          </aside>
+        </div>
+        <div class="benchmark-bands" id="benchmarkBands"></div>
+      </section>
+
+      <section class="submit-stack band" id="submit-stack">
+        <div class="section-head">
+          <div>
+            <h2>Submit Your Anonymous Stack</h2>
+            <p>Help improve the benchmark without exposing your startup name, email, or private spend data.</p>
+          </div>
+          <span class="directory-count" id="submissionCount">0 local submissions</span>
+        </div>
+        <div class="submission-layout">
+          <form class="submission-form" id="submissionForm">
+            <label>
+              <span>Business Type</span>
+              <select name="submissionType">
+                <option>Bootstrap SaaS</option>
+                <option>Agency</option>
+                <option>D2C Brand</option>
+                <option>Freelancer</option>
+                <option>Coaching Center</option>
+                <option>Local Business</option>
+              </select>
+            </label>
+            <label>
+              <span>Monthly Stack Spend</span>
+              <input name="submissionSpend" type="number" min="0" step="500" placeholder="e.g. 9800" required />
+            </label>
+            <label>
+              <span>Revenue Stage</span>
+              <select name="submissionStage">
+                <option>Pre-revenue</option>
+                <option>Rs 0-1L/month</option>
+                <option>Rs 1L-10L/month</option>
+                <option>Rs 10L+/month</option>
+              </select>
+            </label>
+            <label>
+              <span>Tools Used</span>
+              <input name="submissionTools" type="text" placeholder="Razorpay, WATI, Vercel, Zoho..." required />
+            </label>
+            <label class="full">
+              <span>Biggest Stack Regret</span>
+              <input
+                name="submissionRegret"
+                type="text"
+                placeholder="e.g. Paying for three analytics tools before revenue"
+              />
+            </label>
+            <button class="button dark full-width" type="submit">Add Anonymous Sample</button>
+          </form>
+          <aside class="submission-panel">
+            <h3>Local Submission Preview</h3>
+            <div class="submission-list" id="submissionList">
+              <p class="empty-state">No local submissions yet. Add one to preview how public benchmark samples will appear.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="leaderboard band" id="leaderboard">
+        <div class="section-head">
+          <div>
+            <h2>Most Roasted Indian Startup Stacks</h2>
+            <p>Public roast cards founders would actually share.</p>
+          </div>
+          <a class="text-button" href="#roast">Join the leaderboard</a>
+        </div>
+        <div class="leaderboard-list" id="leaderboardList"></div>
+      </section>
+
+      <section class="vendors band" id="sponsors">
+        <div>
+          <h2>For Tools and Platforms</h2>
+          <p>Reach 10,000+ Indian founders every month.</p>
+        </div>
+        <div class="vendor-grid">
+          <article><strong>Featured Listing</strong><span>Get discovered by founders actively evaluating tools.</span></article>
+          <article><strong>Comparison Placement</strong><span>Show up in top comparisons that drive decisions.</span></article>
+          <article><strong>Insights Sponsorship</strong><span>Sponsor research reports and category insights.</span></article>
+          <article><strong>Newsletter Feature</strong><span>Reach operators reading weekly stack updates.</span></article>
+        </div>
+        <aside class="sponsor-box">
+          <strong>Sponsor This Index</strong>
+          <span>Starting at Rs 9,999/month</span>
+          <button class="button dark" type="button">Get Media Kit</button>
+        </aside>
+      </section>
+
+      <section class="newsletter" id="newsletter">
+        <div>
+          <h2>Stay ahead. Get the best stacks, tools, and insights.</h2>
+          <p>Join 20,000+ Indian founders and operators.</p>
+        </div>
+        <form id="newsletterForm">
+          <label class="sr-only" for="newsletterEmail">Email address</label>
+          <input id="newsletterEmail" type="email" placeholder="Enter your email" required />
+          <button class="button dark" type="submit">Subscribe Now</button>
+          <small>No spam. Unsubscribe anytime.</small>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>Indian Startup Stack Index</strong>
+        <p>Making India’s startup stack decisions smarter, cheaper, and faster.</p>
+        <div class="socials" aria-label="Social links">
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="X">x</a>
+          <a href="#" aria-label="YouTube">yt</a>
+          <a href="#" aria-label="GitHub">gh</a>
+        </div>
+      </div>
+      <nav aria-label="Footer Explore">
+        <strong>Explore</strong>
+        <a href="#categories">Categories</a>
+        <a href="#comparisons">Comparisons</a>
+        <a href="#presets">Stack Presets</a>
+        <a href="#roast">Stack Roast</a>
+      </nav>
+      <nav aria-label="Footer Resources">
+        <strong>Resources</strong>
+        <a href="#methodology">Methodology</a>
+        <a href="#newsletter">Reports</a>
+        <a href="#comparisons">Startup Deals</a>
+        <a href="#methodology">Changelog</a>
+      </nav>
+      <nav aria-label="Footer Company">
+        <strong>Company</strong>
+        <a href="#methodology">About</a>
+        <a href="#methodology">Methodology</a>
+        <a href="#newsletter">Contact</a>
+        <a href="#sponsors">Submit a Tool</a>
+      </nav>
+      <div class="made-in">
+        <strong>Made in India for Indian startups.</strong>
+        <small>© 2026 Indian Startup Stack Index</small>
+      </div>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

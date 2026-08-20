@@ -1,0 +1,27 @@
+{
+  "metrics": {
+    "viewport": 390,
+    "clientWidth": 390,
+    "scrollWidth": 390,
+    "toolRows": 50,
+    "hero": "The definitive index and audit for Indian startup stacks.",
+    "submitText": "Submit a Tool"
+  },
+  "interaction": {
+    "comparisonCards": 1,
+    "directoryCount": "5 tools",
+    "overallScore": "72",
+    "firstFinding": "ShipFast may be overspending by Rs 7,560/month across overlapping tools.",
+    "shareCompany": "ShipFast",
+    "shareScore": "72/100",
+    "repoProvider": "GitHub: shipfast/app",
+    "repoChips": "Next.js, Prisma, Razorpay, Analytics, AI Workflow, Vercel",
+    "repoFinding": "GitHub source detected from github.com.",
+    "leaderboardRows": 3,
+    "benchmarkBand": "Bloated",
+    "benchmarkShare": "My startup stack is leaner than 18% of Indian D2C brand founders.",
+    "benchmarkCards": 4,
+    "submissionCount": "1 local submission",
+    "submissionPreview": "Bootstrap SaaS\nRs 15,500/month\nPre-revenue • Razorpay, WATI, Vercel\n\nBought too many analytics tools before revenue"
+  }
+}
